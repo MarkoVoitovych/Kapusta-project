@@ -141,7 +141,8 @@ export const StyledBtn = styled.button`
   background-color: ${p => p.theme.colors.BgGray};
 
   transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 400ms cubic-bezier(0.4, 0, 0.2, 1), border 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   border: 2px solid #ffffff;
   border-radius: 16px;
@@ -153,7 +154,7 @@ export const StyledBtn = styled.button`
     color: white;
     background-color: ${p => p.theme.colors.PrimaryOrange};
 
-      border: none;
+    border: none;
   }
 
   @media screen and (max-width: 768px) {
@@ -247,11 +248,13 @@ export const BaseContainer = styled.div`
 `;
 
 export const MounthContainer = styled(BaseContainer)`
-width: 166px;
+  width: fit-content;
 `;
 
-
 export const PeriodData = styled.p`
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14px;
@@ -271,5 +274,5 @@ export const MainPageText = styled.p`
   }
 `;
 export const MounthBox = styled.div`
-min-width: 150px;
+  min-width: 150px;
 `;

@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { theme } from 'components/Theme';
 
 const styledComponents = {
-  BoxForBalance: styled.div`    
-  display: block;
+  BoxForBalance: styled.div`
+    display: block;
     width: 705px;
     padding: 0;
     margin: 0 auto 30px auto;
@@ -14,7 +14,7 @@ const styledComponents = {
     @media screen and (min-width: 1280px) {
       width: 1035px;
     }
-`,
+  `,
   BoxStats: styled.div`
     display: block;
     text-align: center;
@@ -27,7 +27,7 @@ const styledComponents = {
       width: 100%;
       padding: 5px 5px;
       margin: 0;
-  background-color: transparent;
+      background-color: transparent;
     }
 
     @media screen and (min-width: 1280px) {
@@ -36,8 +36,8 @@ const styledComponents = {
   `,
 
   BoxForSchedule: styled.div`
-  height: 350px;
-  display: block;
+    height: 350px;
+    display: block;
     text-align: center;
     width: 705px;
     padding: 20px;
@@ -66,7 +66,7 @@ const styledComponents = {
     column-gap: 30px;
     list-style: none;
     color: ${theme.colors.TextGray};
-     @media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
       column-gap: 0;
       row-gap: 0;
       width: 100%;
@@ -85,9 +85,9 @@ const styledComponents = {
     letter-spacing: 0.02em;
     text-transform: uppercase;
     @media screen and (max-width: 768px) {
-              max-width: 110px;
-    padding: 20px 10px;
-  border-bottom: 1px solid ${theme.colors.TextGray};
+      max-width: 110px;
+      padding: 20px 10px;
+      border-bottom: 1px solid ${theme.colors.TextGray};
     }
   `,
   TitleOfBalanceChanges: styled.h3`
@@ -110,10 +110,10 @@ const styledComponents = {
     transition: 350ms ease-in-out;
     &:hover,
     &:focus,
-    &:active{
-    fill: ${theme.colors.PrimaryOrange};
-    transform: scale(1.2);
-  }
+    &:active {
+      fill: ${theme.colors.PrimaryOrange};
+      transform: scale(1.2);
+    }
   `,
 
   BoxForSvg: styled.div`
@@ -123,13 +123,13 @@ const styledComponents = {
     height: 46px;
     margin: -5px -5px 0 0;
     &:hover {
-    background-color: ${theme.colors.PaleOrange};
-    transform: scale(1.2);
-  }
+      background-color: ${theme.colors.PaleOrange};
+      transform: scale(1.2);
+    }
   `,
 
   BtnToggleStats: styled.button`
-      padding: 5px;
+    padding: 5px;
     border: none;
     background-color: transparent;
   `,

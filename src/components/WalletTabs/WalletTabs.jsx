@@ -52,7 +52,9 @@ export const Tabs = () => {
             <InputTransactionForm type="income" />
             <TransactWrapper>
               <TransactionsList type="income" />
-              <Summary />
+              <SummaryWrapper>
+                <Summary />
+              </SummaryWrapper>
             </TransactWrapper>
           </>
         )}

@@ -5,9 +5,10 @@ const stylesTransactionsList = {
   BoxForList: styled.div`
     width: 100%;
     @media screen and (min-width: 768px) {
-    margin-top:80px;
+      margin-top: 80px;
     }
     @media screen and (min-width: 1280px) {
+      margin-top: 60px;
       max-width: 746px;
     }
   `,
@@ -154,7 +155,6 @@ const stylesTransactionsList = {
     font-size: 12px;
     line-height: 1.17;
     letter-spacing: 0.04em;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

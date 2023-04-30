@@ -40,35 +40,39 @@ export function BalanceReport() {
   const nextMonth = () => {
     setMonthes(prevState => prevState + 1);
 
-    const newPeriod = new Date(JSON.parse(statePeriod)) 
+    const newPeriod = new Date(JSON.parse(statePeriod));
     newPeriod.setDate(1);
     newPeriod.setMonth(new Date(JSON.parse(statePeriod)).getMonth() + 1);
-    const month = newPeriod.getMonth() + 1
-    const period = `${newPeriod.getFullYear()}-${month > 10 ? month : `0${month}`}`
-   
-    dispatch(currentPeriod(JSON.stringify(newPeriod)))
-    dispatch(getStatistics({ period }))
-  }
+    const month = newPeriod.getMonth() + 1;
+    const period = `${newPeriod.getFullYear()}-${
+      month > 10 ? month : `0${month}`
+    }`;
+
+    dispatch(currentPeriod(JSON.stringify(newPeriod)));
+    dispatch(getStatistics({ period }));
+  };
 
   const prevMonth = () => {
     setMonthes(prevState => prevState - 1);
 
-    const newPeriod = new Date(JSON.parse(statePeriod)) 
+    const newPeriod = new Date(JSON.parse(statePeriod));
     newPeriod.setDate(1);
     newPeriod.setMonth(new Date(JSON.parse(statePeriod)).getMonth() - 1);
-    const month = newPeriod.getMonth() + 1
-    const period = `${newPeriod.getFullYear()}-${month > 10 ? month : `0${month}`}`
-   
-    dispatch(currentPeriod(JSON.stringify(newPeriod)))
-    dispatch(getStatistics({ period }))
-  }
+    const month = newPeriod.getMonth() + 1;
+    const period = `${newPeriod.getFullYear()}-${
+      month > 10 ? month : `0${month}`
+    }`;
+
+    dispatch(currentPeriod(JSON.stringify(newPeriod)));
+    dispatch(getStatistics({ period }));
+  };
 
   return (
     <BalanceContainer>
       <PeriodContainer>
         <StyledLink to="/wallet">
           <MainPageSvg>
-            <use href={`${svg}#arrow_back`}></use>
+            <use href={`${svg}#arrow_back`} />
           </MainPageSvg>
           <MainPageText>Main Page</MainPageText>
         </StyledLink>
@@ -80,7 +84,7 @@ export function BalanceReport() {
           <MounthContainer>
             <PeriodBtn type="button" onClick={prevMonth}>
               <PeriodArrow>
-                <use href={`${svg}#arrow_left`}></use>
+                <use href={`${svg}#arrow_left`} />
               </PeriodArrow>
             </PeriodBtn>
             <PeriodData>{getDate(month)}</PeriodData>

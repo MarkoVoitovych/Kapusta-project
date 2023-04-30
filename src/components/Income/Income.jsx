@@ -30,7 +30,8 @@ const Income = ({ onClick }) => {
         // eslint-disable-next-line no-useless-computed-key
         ['З/П']: salary,
         // eslint-disable-next-line no-useless-computed-key
-        ['Доп. доход']: income },
+        ['Доп. доход']: income,
+      },
       incomeTotal,
     },
   } = statistics.data;
@@ -96,7 +97,6 @@ const Income = ({ onClick }) => {
               <ItemOfBalanceChanges onClick={onItemClick} id="Доп. доход">
                 <p>{formating(income.total)}</p>
                 <BoxForSvg>
-                  {' '}
                   <SvgBoxStyle>
                     <use href={`${svg}#income`} />
                   </SvgBoxStyle>
@@ -109,7 +109,11 @@ const Income = ({ onClick }) => {
           <TitleOfBalanceChanges>"No data to display!"</TitleOfBalanceChanges>
         )}
       </BoxStats>
-      {filtredData() && (<BoxForSchedule><Chart data={filtredData()} /></BoxForSchedule>)}
+      {filtredData() && (
+        <BoxForSchedule>
+          <Chart data={filtredData()} />
+        </BoxForSchedule>
+      )}
     </>
   );
 };

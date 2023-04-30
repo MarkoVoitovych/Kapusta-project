@@ -13,6 +13,8 @@ export const SummaryList = styled.ul`
   gap: 2px;
   width: 213px;
   margin-top: 80px;
+  @media screen and (min-width: 768px) {
+  }
 `;
 
 export const SummaryTitle = styled.li`

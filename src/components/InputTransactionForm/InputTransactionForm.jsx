@@ -28,7 +28,10 @@ import {
   InputGroupWrapper,
   InputProduct,
   MainContainer,
+  SelectAmountWrapper,
 } from './styles/InputTransactionForm.styled';
+
+import { ShowFormButton } from 'components/ShowFormBtn/ShowFormBtn';
 
 export default function InputTransactionForm({ type }) {
   const TRANSACTION_FORM_DATA = {
@@ -51,6 +54,7 @@ export default function InputTransactionForm({ type }) {
   const [formData, setFormData] = useState(initialFormData);
   const [date, setDate] = useState(today);
   const [category, setCategory] = useState(null);
+  const [showForm, setShowForm] = useState(false);
 
   const dispatch = useDispatch();
   const transactionsOptions = useSelector(selectTransactionsOptions);
@@ -98,6 +102,10 @@ export default function InputTransactionForm({ type }) {
     return isValid;
   };
 
+  const onButtonModalClick = () => {
+    setShowForm(!showForm);
+  };
+
   const onFormSubmit = () => {
     if (!isFormValid(formData.product, category, formData.sum)) return null;
     const transaction = {
@@ -131,7 +139,8 @@ export default function InputTransactionForm({ type }) {
 
   return (
     <MainContainer>
-      <InputForm>
+      <ShowFormButton onClick={onButtonModalClick} />
+      <InputForm isShown={showForm}>
         <DatePickerComponent
           name="date"
           date={date}
@@ -150,33 +159,37 @@ export default function InputTransactionForm({ type }) {
               })
             }
           />
-          <Select
-            key={type}
-            defaultOptions
-            placeholder={TRANSACTION_FORM_DATA[type].selectCategoryPlaceholder}
-            styles={selectStyles}
-            options={transactionsOptions[type] ?? []}
-            isLoading={isLoadingOpts}
-            closeMenuOnSelect={true}
-            onChange={selectedOption => setCategory(selectedOption)}
-            value={category}
-          />
-          <InputAmountWrapper>
-            <InputAmount
-              type="text"
-              value={formData.sum}
-              name="product"
-              placeholder="0.00"
-              onChange={e => validateSumInput(e.target.value)}
+          <SelectAmountWrapper>
+            <Select
+              key={type}
+              defaultOptions
+              placeholder={
+                TRANSACTION_FORM_DATA[type].selectCategoryPlaceholder
+              }
+              styles={selectStyles}
+              options={transactionsOptions[type] ?? []}
+              isLoading={isLoadingOpts}
+              closeMenuOnSelect={true}
+              onChange={selectedOption => setCategory(selectedOption)}
+              value={category}
             />
-            <svg
-              className="input-product-form--calc-svg"
-              width="20"
-              height="20"
-            >
-              <use href={sprite + `#calculator`}></use>
-            </svg>
-          </InputAmountWrapper>
+            <InputAmountWrapper>
+              <InputAmount
+                type="text"
+                value={formData.sum}
+                name="product"
+                placeholder="0.00"
+                onChange={e => validateSumInput(e.target.value)}
+              />
+              <svg
+                className="input-product-form--calc-svg"
+                width="20"
+                height="20"
+              >
+                <use href={sprite + `#calculator`}></use>
+              </svg>
+            </InputAmountWrapper>
+          </SelectAmountWrapper>
         </InputGroupWrapper>
         <ButtonsWrapper>
           <Btn text="INPUT" onClick={onFormSubmit} />

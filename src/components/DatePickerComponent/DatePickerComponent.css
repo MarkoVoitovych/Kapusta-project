@@ -10,21 +10,21 @@
   background-color: #f5f6fb;
   border: none;
 }
+
 .react-datepicker {
   border: 2px solid #f5f6fb;
   color: #f5f6fb;
   position: absolute;
-  left: -30px;
+  transform: translateX(-35%)
 }
-.react-datepicker-popper[data-placement^='bottom']
-  .react-datepicker__triangle::after {
+
+.react-datepicker-popper[data-placement^='bottom'] .react-datepicker__triangle::after {
   border-bottom-color: #f5f6fb;
 }
 
 .react-datepicker__triangle {
   position: absolute;
   left: 0px;
-  transform: translateX(30px) !important;
 }
 
 .react-datepicker__current-month {
@@ -43,8 +43,9 @@
 .react-datepicker__day--selected:focus {
   background-color: #ff751d;
 }
+
 .react-datepicker-wrapper {
-  width: auto;
+  width: 100%;
 }
 
 .date {
@@ -74,8 +75,17 @@
   position: relative;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) {
+  .react-datepicker {
+    left: -30px;
+    transform: translateX(0)
+  }
+
+  .react-datepicker__triangle {
+    position: absolute;
+    left: 0px;
+    transform: translate(30px) !important;
+  }
 }
 
-@media (min-width: 1280px) {
-}
+@media (min-width: 1280px) {}

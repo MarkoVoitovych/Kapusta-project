@@ -2,54 +2,50 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 export const BalanceContainer = styled.div`
-  height: 44px;
-
-  position: relative;
-
+  height: auto;
   display: flex;
+  flex-direction: column-reverse;
+  padding-top: 47px;
   justify-content: flex-end;
   align-items: center;
-
-  padding-top: 40px;
-  margin: 0 auto;
-
+  gap: 40px;
+  margin-top: 40px;
   background-color: transparent;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
     justify-content: space-between;
+    height: 44px;
+    margin: 0 auto;
+    gap: 0;
+    margin-bottom: 60px;
+    position: relative;
+    padding-top: 40px;
+    align-items: center;
   }
-
-  @media screen and (max-width: 480px) {
-    height: auto;
-
-    flex-direction: column-reverse;
+  @media screen and (max-width: 1280px) {
+    justify-content: flex-end;
   }
 `;
 
 export const PortalContainer = styled.div`
   height: 0;
   width: 125px;
-
   padding-left: 68px;
   padding-right: 141px;
 `;
 
 export const AbsoluteContainer = styled(BalanceContainer)`
   box-sizing: border-box;
-
   top: 144px;
-
   height: 0;
   width: 100%;
-
   position: absolute;
-
   margin: 0 auto;
   padding: 0 91px;
   @media screen and (max-width: 768px) {
     padding: 0 32px;
   }
-
   @media screen and (max-width: 480px) {
     top: 232px;
     left: -22px;
@@ -60,24 +56,22 @@ export const AbsoluteContainer = styled(BalanceContainer)`
 
 export const BalanceForm = styled.div`
   position: absolute;
-
   left: 50%;
-
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: center;
-
   transform: translate(-50%, 0);
-
-  @media screen and (max-width: 768px) {
-    position: static;
-
-    transform: translate(0, 0);
+  gap: 8px;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 0;
   }
-  @media screen and (max-width: 480px) {
-    flex-direction: column;
-
-    margin-top: 40px;
+  @media screen and (min-width: 1280px) {
+    align-self: center;
+    justify-content: center;
+    flex-grow: 3;
   }
 `;
 
@@ -96,9 +90,7 @@ export const Text = styled.label`
 
 export const CurrentBalance = styled.p`
   box-sizing: border-box;
-
   position: relative;
-
   height: 44px;
   width: 125px;
 
@@ -168,7 +160,8 @@ export const StyledBtn = styled.button`
   background-color: ${p => p.theme.colors.BgGray};
 
   transition: background-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 400ms cubic-bezier(0.4, 0, 0.2, 1), border 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    color 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 400ms cubic-bezier(0.4, 0, 0.2, 1);
 
   border: 2px solid #ffffff;
   border-radius: 16px;
@@ -210,6 +203,10 @@ export const StyledLink = styled(NavLink)`
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.PrimaryOrange};
+  }
+
+  @media screen and (min-width: 1280px) {
+    justify-content: flex-grow;
   }
 `;
 
